@@ -85,7 +85,7 @@ function initializeMap() {
 	var infoContent;
 
 	//function to get infomations about the location from wiki api by ajax (jsonp).
-	function getInfo(name){
+	Location.prototype.getInfo = function(name){
   		var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + name + '&format=json&callback=wikiCallback';
     	//handle the error when browser don't get infomation
     	// var wikiRequestTimeout = setTimeout(function(){
@@ -235,7 +235,7 @@ var ViewModel = function() {
 	});
 
 	//update markers on map when input change
-	this.filterMarker = function() {
+	self.filterMarker = function() {
 		markers.forEach(function(marker){
 			marker.setVisible(true);
 			if(filterNameList.indexOf(marker.getTitle().split(',')[0]) === -1) {
