@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>Neigborhood Map</title>
+	<link rel="shortcut icon" href="images/icon.ico">
+	<link rel="stylesheet" href="css/style.css">
+	</script>
+</head>
+<body>
+	<header id="header">
+		<div id="sideBar" data-bind="event: {click: sideBoxIn}">
+			<h3>Filter</h3>
+		</div>
+		<div id="topTitle">
+			<h1>Neighbor Map</h1>
+		</div>
+	</header>
+	<div id="map"></div>
+	<div id="mask" data-bind="event: {click: sideBoxOut}"></div>
+	<aside id="sideBox">
+		<div id="seachBar">
+			<input type="text" id="filter" placeholder="Enter word to filter locations" data-bind="textInput: searchValue, event: {keyup: filterMarker}">
+		</div>
+		<div id="loList">
+			<ul data-bind="foreach: locationList">
+				<li data-bind="text: name,click: $parent.setMarker"></li>
+			</ul>
+		</div>
+	</aside>
+<script src="js/libs/jquery-3.1.1.min.js"></script>
+<script src="js/libs/knockout.js"></script>
+<script src="js/app.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBgKuzirjQZM1L6gD54_wTags9rVpneDCg&libraries=places&language=en&callback=initializeMap" onerror="MapLoadError()" async defer></script>
+</body>
+</html>
